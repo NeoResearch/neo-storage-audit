@@ -20,6 +20,10 @@ If `storage` field is an empty list, then `size` field will be zero, as in the n
 ]
 ```
 
+#### But all files are empty
+In the beggining, no storage was used, so all arrays will be empty. Please take a look at folder `BlockStorage_1500000`, specially file `dump-block-1445000.json` (block 1444843), when Storage action begins ;)
+
+#### Storage actions: Added/Changed/Deleted
 Block actions can be one of the three: `Added` (when a new key/value is created), `Changed` (when a value is changed for a given existing key) or `Deleted` (when a key is removed together with its value).
 The hex format of key and value follows Neo standard for serialization of StorageKey and StorageItem (don't worry, we will explain these here in details ;) ).
 
@@ -52,8 +56,7 @@ The `value` part is written via WriteVarBytes, which includes a prefix for the b
 If invocation is repeated on the same contract, the state action will be recorded as `Changed` (not `Added`). 
 Finally, if a key is deleted, storage action will be recorded as `Deleted`, and no `value` will be presented, only the `key`.
 
-#### But all files are empty
-In the beggining, no storage was used, so all arrays will be empty. Please take a look at folder `BlockStorage_1500000`, specially file `dump-block-1445000.json` (block 1444843), when Storage action begins ;)
+
 
 ### Use cases
 Using this raw data it's possible to easily reproduce past notifications in **any given block**. This is amazing!
