@@ -56,7 +56,12 @@ The `value` part is written via WriteVarBytes, which includes a prefix for the b
 If invocation is repeated on the same contract, the state action will be recorded as `Changed` (not `Added`). 
 Finally, if a key is deleted, storage action will be recorded as `Deleted`, and no `value` will be presented, only the `key`.
 
+#### General serialization format
+Just for short, these are the serialization rules to remember easily:
 
+For `key` is:  `<ScriptHash 20-bytes> + <key 16-byte multiple zero padded>`
+
+For `value` is `<StateBase 0x00> + <data size> + <data contents> + <storage attribute 1-byte (usually 0x00)>`
 
 ### Use cases
 Using this raw data it's possible to easily reproduce past notifications in **any given block**. This is amazing!
