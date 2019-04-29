@@ -68,6 +68,15 @@ Using this raw data it's possible to easily reproduce past notifications in **an
 
 This data can also be used to enforce newer standards regarding a storage hashing representation to make sure storage is correct in every network node.
 
+### Storage Recovery
+
+Use the code available at [https://gist.github.com/ixje/810cb086970cec43b709f6ae8589b872](https://gist.github.com/ixje/810cb086970cec43b709f6ae8589b872).
+
+##### usage
+`python main.py -s Storage/ -o temp_output -b 2458`, to read the audit files from `Storage/`
+
+write the new chain in `./temp_output` and, consequently, restore to blockheight `2458`
+
 ### License
 Data is freely available in MIT/Creative Commons.
 
